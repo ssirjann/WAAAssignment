@@ -12,8 +12,11 @@ import java.util.List;
 @RequestMapping("/api/v1/posts")
 public class PostController {
 
-    @Autowired
-    private PostService postService;
+    private final PostService postService;
+
+    public PostController(PostService postService) {
+        this.postService = postService;
+    }
 
     @GetMapping
     public List<PostDto> getPosts() {

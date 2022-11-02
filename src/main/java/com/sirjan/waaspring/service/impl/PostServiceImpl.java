@@ -14,10 +14,14 @@ import java.util.stream.Collectors;
 @Service
 public class PostServiceImpl implements PostService {
 
-    @Autowired
-    private PostRepository postRepo;
-    @Autowired
+    private final PostRepository postRepo;
     private ModelMapper mapper;
+
+    @Autowired
+    public PostServiceImpl(PostRepository postRepo, ModelMapper mapper) {
+        this.postRepo = postRepo;
+        this.mapper = mapper;
+    }
 
     @Override
     public List<PostDto> findAll() {
