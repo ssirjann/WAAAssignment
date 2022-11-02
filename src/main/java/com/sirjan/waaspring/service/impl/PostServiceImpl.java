@@ -2,13 +2,12 @@ package com.sirjan.waaspring.service.impl;
 
 import com.sirjan.waaspring.domain.Post;
 import com.sirjan.waaspring.domain.dto.PostDto;
-import com.sirjan.waaspring.repo.PostRepo;
+import com.sirjan.waaspring.repo.PostRepository;
 import com.sirjan.waaspring.service.PostService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -16,17 +15,13 @@ import java.util.stream.Collectors;
 public class PostServiceImpl implements PostService {
 
     @Autowired
-    private PostRepo postRepo;
+    private PostRepository postRepo;
     @Autowired
     private ModelMapper mapper;
 
     @Override
     public List<PostDto> findAll() {
-        return postRepo
-                .findAll()
-                .stream()
-                .map(x -> mapper.map(x, PostDto.class))
-                .collect(Collectors.toList());
+        return postRepo.findAll().stream().map(x -> mapper.map(x, PostDto.class)).collect(Collectors.toList());
     }
 
     @Override
@@ -41,6 +36,7 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public void update(int id, PostDto postDto) {
-        postRepo.update(id, mapper.map(postDto, Post.class));
+        postDto.setId(id);
+        postRepo.save(mapper.map(postDto, Post.class));
     }
 }
