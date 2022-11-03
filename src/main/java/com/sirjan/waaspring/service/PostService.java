@@ -11,4 +11,6 @@ public interface PostService {
     void delete(int id);
 
     void update(int id, PostDto postDto);
+
+    void save(PostDto postDto);
 }

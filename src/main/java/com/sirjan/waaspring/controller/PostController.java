@@ -2,7 +2,6 @@ package com.sirjan.waaspring.controller;
 
 import com.sirjan.waaspring.domain.dto.PostDto;
 import com.sirjan.waaspring.service.PostService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -38,5 +37,11 @@ public class PostController {
     @PutMapping("/{id}")
     public void update(@PathVariable int id, @RequestBody PostDto postDto) {
         postService.update(id, postDto);
+    }
+
+    @ResponseStatus(HttpStatus.CREATED)
+    @PostMapping
+    public void save(@RequestBody PostDto postDto) {
+        postService.save(postDto);
     }
 }

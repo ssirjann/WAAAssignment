@@ -43,4 +43,9 @@ public class PostServiceImpl implements PostService {
         postDto.setId(id);
         postRepo.save(mapper.map(postDto, Post.class));
     }
+
+    @Override
+    public void save(PostDto postDto) {
+        postRepo.save(mapper.map(postDto, Post.class));
+    }
 }
