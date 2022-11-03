@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -17,4 +18,8 @@ public class Post {
 
     private String title;
     private String content;
+
+    @OneToMany
+    @JoinColumn(name = "post_id")
+    private List<Comment> comments;
 }
