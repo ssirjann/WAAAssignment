@@ -12,7 +12,8 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Table(name = "AppUser")
-public class User {
+public class
+User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
