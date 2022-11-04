@@ -46,8 +46,8 @@ public class UserController {
         userService.save(userDto);
     }
 
-    @GetMapping("/{id}/posts")
-    public List<PostDto> userPosts(@PathVariable int id) {
-        return userService.findPostsById(id);
-    }
+//    @GetMapping("/{id}/posts")
+//    public List<PostDto> userPosts(@PathVariable int id) {
+//        return userService.findPostsById(id);
+//    }
 }

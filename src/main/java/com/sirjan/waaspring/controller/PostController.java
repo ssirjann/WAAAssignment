@@ -8,40 +8,44 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/posts")
+@RequestMapping("/api/v1/users/{userId}/posts")
 public class PostController {
 
     private final PostService postService;
 
     public PostController(PostService postService) {
+
         this.postService = postService;
     }
 
     @GetMapping
-    public List<PostDto> getPosts() {
-        return postService.findAll();
+    public List<PostDto> getPosts(@PathVariable int userId) {
+
+        return postService.findAll(userId);
     }
 
     @GetMapping("/{id}")
-    public PostDto getPost(@PathVariable int id) {
-        return postService.findById(id);
+    public PostDto getPost(@PathVariable int userId, @PathVariable int id) {
+
+        return postService.findById(userId, id);
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable int id) {
-        postService.delete(id);
+    public void delete(@PathVariable int userId, @PathVariable int id) {
+        postService.delete(userId, id);
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @PutMapping("/{id}")
-    public void update(@PathVariable int id, @RequestBody PostDto postDto) {
-        postService.update(id, postDto);
+    public void update(@PathVariable int userId, @PathVariable int id, @RequestBody PostDto postDto) {
+
+        postService.update(userId, id, postDto);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
-    public void save(@RequestBody PostDto postDto) {
-        postService.save(postDto);
+    public void save(@PathVariable int userId, @RequestBody PostDto postDto) {
+        postService.save(userId, postDto);
     }
 }
