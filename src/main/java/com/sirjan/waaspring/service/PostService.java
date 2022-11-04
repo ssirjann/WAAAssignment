@@ -13,4 +13,6 @@ public interface PostService {
     void update(int id, int i, PostDto postDto);
 
     void save(int userId, PostDto postDto);
+
+    List<PostDto> findByTitleStartsWith(String title);
 }

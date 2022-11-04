@@ -9,6 +9,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -65,5 +66,15 @@ public class PostServiceImpl implements PostService {
         Post post = mapper.map(postDto, Post.class);
         post.setUser(userRepository.findById(userId).get());
         postRepo.save(post);
+    }
+
+    @Override
+    public List<PostDto> findByTitleStartsWith(String title) {
+        return postRepo
+                .findByTitleStartsWithIgnoreCase(title)
+                .stream()
+                .map(x -> mapper.map(x, PostDto.class))
+                .collect(Collectors.toList());
+
     }
 }

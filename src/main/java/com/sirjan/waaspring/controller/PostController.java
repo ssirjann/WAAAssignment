@@ -24,6 +24,11 @@ public class PostController {
         return postService.findAll(userId);
     }
 
+    @GetMapping("/filter/title/{title}")
+    public List<PostDto> findByTitle(@PathVariable String title) {
+        return postService.findByTitleStartsWith(title);
+    }
+
     @GetMapping("/{id}")
     public PostDto getPost(@PathVariable int userId, @PathVariable int id) {
 
