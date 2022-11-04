@@ -69,4 +69,13 @@ public class UserServiceImpl implements UserService {
                 .map(x -> mapper.map(x, UserDto.class))
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public List<UserDto> findByPostsStartsWith(String title) {
+        return userRepo
+                .findByPostsTitleStartsWithIgnoreCase(title)
+                .stream()
+                .map(x -> mapper.map(x, UserDto.class))
+                .collect(Collectors.toList());
+    }
 }

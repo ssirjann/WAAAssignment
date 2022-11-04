@@ -18,4 +18,6 @@ public interface UserService {
     List<PostDto> findPostsById(int id);
 
     List<UserDto> findByPostsGreaterThan(int count);
+
+    List<UserDto> findByPostsStartsWith(String title);
 }

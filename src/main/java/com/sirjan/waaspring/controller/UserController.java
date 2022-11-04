@@ -32,6 +32,11 @@ public class UserController {
         return userService.findByPostsGreaterThan(count);
     }
 
+    @GetMapping("/filter/posts/title/{title}")
+    public List<UserDto> findByPostTitle(@PathVariable String title) {
+        return userService.findByPostsStartsWith(title);
+    }
+
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{id}")
 
@@ -50,4 +55,5 @@ public class UserController {
     public void save(@RequestBody UserDto userDto) {
         userService.save(userDto);
     }
+
 }

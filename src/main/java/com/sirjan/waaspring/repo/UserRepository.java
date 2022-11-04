@@ -9,4 +9,6 @@ import java.util.List;
 public interface UserRepository extends JpaRepository<User, Integer> {
     @Query(value = "SELECT u FROM User u where u.posts.size > :count")
     List<User> findByPostsGreaterThan(int count);
+
+    List<User> findByPostsTitleStartsWithIgnoreCase(String title);
 }
