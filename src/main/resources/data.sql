@@ -54,3 +54,19 @@ INSERT INTO post (id, title, content, user_id)
 VALUES (9, 'it is because', 'I yam byatman3', 3);
 
 
+
+
+
+
+INSERT INTO comment (id, name, post_id)
+VALUES (1, 'THIS IS MY AWESOME COMMENT', 2);
+
+
+INSERT INTO comment (id, name, post_id)
+VALUES (2, 'Another Comment on the awesome content', 2);
+
+
+INSERT INTO comment (id, name, post_id)
+VALUES (3, 'What??? Third comment??', 2);
+
+
