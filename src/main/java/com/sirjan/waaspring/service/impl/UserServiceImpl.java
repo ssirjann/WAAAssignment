@@ -60,4 +60,13 @@ public class UserServiceImpl implements UserService {
                 .map(x -> mapper.map(x, PostDto.class))
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public List<UserDto> findByPostsGreaterThan(int count) {
+        return userRepo
+                .findByPostsGreaterThan(count)
+                .stream()
+                .map(x -> mapper.map(x, UserDto.class))
+                .collect(Collectors.toList());
+    }
 }

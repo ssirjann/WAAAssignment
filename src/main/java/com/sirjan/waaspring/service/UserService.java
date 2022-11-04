@@ -16,4 +16,6 @@ public interface UserService {
     void save(UserDto userDto);
 
     List<PostDto> findPostsById(int id);
+
+    List<UserDto> findByPostsGreaterThan(int count);
 }

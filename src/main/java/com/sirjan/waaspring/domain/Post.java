@@ -1,5 +1,7 @@
 package com.sirjan.waaspring.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,8 +23,10 @@ public class Post {
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "post_id")
+    @JsonManagedReference
     private List<Comment> comments;
 
-    @ManyToOne()
+    @ManyToOne
+    @JsonBackReference
     private User user;
 }

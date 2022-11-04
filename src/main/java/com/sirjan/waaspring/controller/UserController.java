@@ -1,6 +1,5 @@
 package com.sirjan.waaspring.controller;
 
-import com.sirjan.waaspring.domain.dto.PostDto;
 import com.sirjan.waaspring.domain.dto.UserDto;
 import com.sirjan.waaspring.service.UserService;
 import org.springframework.http.HttpStatus;
@@ -28,8 +27,14 @@ public class UserController {
         return userService.findById(id);
     }
 
+    @GetMapping("/filter/posts/{count}")
+    public List<UserDto> findByPostCount(@PathVariable int count) {
+        return userService.findByPostsGreaterThan(count);
+    }
+
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{id}")
+
     public void delete(@PathVariable int id) {
         userService.delete(id);
     }
@@ -45,9 +50,4 @@ public class UserController {
     public void save(@RequestBody UserDto userDto) {
         userService.save(userDto);
     }
-
-//    @GetMapping("/{id}/posts")
-//    public List<PostDto> userPosts(@PathVariable int id) {
-//        return userService.findPostsById(id);
-//    }
 }
