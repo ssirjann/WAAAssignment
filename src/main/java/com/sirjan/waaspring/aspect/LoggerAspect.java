@@ -16,12 +16,12 @@ import java.time.LocalDateTime;
 public class LoggerAspect {
 
     @Pointcut("within(com.sirjan.waaspring.controller..*)")
-    public void logger() {}
+    public void loggerAnnotation() {}
 
     @Autowired
     private LoggerService loggerService;
 
-    @Before("logger()")
+    @Before("loggerAnnotation()")
     public void logBefore(JoinPoint jp) {
         Logger logger = new Logger();
         logger.setPrinciple("Default");

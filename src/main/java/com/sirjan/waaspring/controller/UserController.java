@@ -1,5 +1,6 @@
 package com.sirjan.waaspring.controller;
 
+import com.sirjan.waaspring.aspect.annotation.ExecutionTime;
 import com.sirjan.waaspring.domain.dto.UserDto;
 import com.sirjan.waaspring.service.UserService;
 import org.springframework.http.HttpStatus;
@@ -23,6 +24,7 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
+    @ExecutionTime
     public UserDto getUser(@PathVariable int id) {
         return userService.findById(id);
     }
