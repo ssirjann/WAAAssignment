@@ -24,4 +24,7 @@ public class User {
     @JoinColumn(name = "user_id")
     @JsonManagedReference
     private List<Post> posts;
+
+    private String password;
+    private String username;
 }

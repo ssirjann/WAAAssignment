@@ -1,22 +1,22 @@
 -- USERS
 
-INSERT INTO app_user (id, name)
-VALUES (1, 'umur inan');
+INSERT INTO app_user (id, name, username, password)
+VALUES (1, 'umur inan', 'umur', '$2a$12$C9C80Iqlo1l1Z8bcEI3pve8c5lF0lMzgti9nrIDImiirv5m8JRRIm');
 
-INSERT INTO app_user (id, name)
-VALUES (2, 'john doe');
+INSERT INTO app_user (id, name, username, password)
+VALUES (2, 'john doe', 'john', '$2a$12$C9C80Iqlo1l1Z8bcEI3pve8c5lF0lMzgti9nrIDImiirv5m8JRRIm');
 
-INSERT INTO app_user (id, name)
-VALUES (3, 'muhyidean l-tarawneh');
+INSERT INTO app_user (id, name, username, password)
+VALUES (3, 'muhyidean l-tarawneh', 'muhyidean', '$2a$12$C9C80Iqlo1l1Z8bcEI3pve8c5lF0lMzgti9nrIDImiirv5m8JRRIm');
 
-INSERT INTO app_user (id, name)
-VALUES (4, 'keith levi');
+INSERT INTO app_user (id, name, username, password)
+VALUES (4, 'keith levi', 'keith', '$2a$12$C9C80Iqlo1l1Z8bcEI3pve8c5lF0lMzgti9nrIDImiirv5m8JRRIm');
 
-INSERT INTO app_user (id, name)
-VALUES (5, 'obinna kalu');
+INSERT INTO app_user (id, name, username, password)
+VALUES (5, 'obinna kalu', 'obinna', '$2a$12$C9C80Iqlo1l1Z8bcEI3pve8c5lF0lMzgti9nrIDImiirv5m8JRRIm');
 
-INSERT INTO app_user (id, name)
-VALUES (6, 'tina xing');
+INSERT INTO app_user (id, name, username, password)
+VALUES (6, 'tina xing', 'tina', '$2a$12$C9C80Iqlo1l1Z8bcEI3pve8c5lF0lMzgti9nrIDImiirv5m8JRRIm');
 
 
 

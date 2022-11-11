@@ -18,9 +18,11 @@ public class ExecutionTimeAspect {
     }
 
     @Around("showExecutionTime()")
-    public void calculationExecutionTime(ProceedingJoinPoint jp) throws Throwable {
+    public Object calculationExecutionTime(ProceedingJoinPoint jp) throws Throwable {
         Instant start = Instant.now();
-        jp.proceed();
+        Object response = jp.proceed();
         System.out.println(Duration.between(start, Instant.now()).toMillis());
+
+        return response;
     }
 }

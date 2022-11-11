@@ -22,7 +22,7 @@ public class ExceptionAspect {
         this.exceptionService = exceptionService;
     }
 
-    @Pointcut("within(com.sirjan.waaspring..*.*)")
+    @Pointcut("execution(* com.sirjan.waaspring..*.*(..)) && !execution(* com.sirjan.waaspring.filter..*(..))")
     public void logException() {}
 
     @AfterThrowing(value = "logException()", throwing = "ex")
@@ -35,6 +35,5 @@ public class ExceptionAspect {
         exception.setDateTime(LocalDateTime.now());
 
         exceptionService.save(exception);
-
     }
 }
