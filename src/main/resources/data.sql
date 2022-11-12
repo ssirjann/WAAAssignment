@@ -20,9 +20,25 @@ VALUES (6, 'tina xing', 'tina', '$2a$12$C9C80Iqlo1l1Z8bcEI3pve8c5lF0lMzgti9nrIDI
 
 
 
+INSERT INTO ROLE(id, title)
+VALUES (1, 'ADMIN'),
+       (2, 'USER');
+
+INSERT INTO APP_USER_ROLES (user_id, roles_id)
+    VALUES
+        (1, 1), -- user 1 (umur inan) is just admin
+        (2, 1), -- user 2 (john doe) is admin and user
+        (2, 2),
+        (3, 2),
+        (4, 2),
+        (5, 2),
+        (6, 2);
+
+
 -- POSTS
 
-INSERT INTO post (id, title, content, user_id)
+    INSERT
+INTO post (id, title, content, user_id)
 VALUES (1, 'Lizards of Louisiana', 'Yere a lizard larry1', 1);
 
 INSERT INTO post (id, title, content, user_id)
@@ -52,9 +68,6 @@ VALUES (8, 'it is because', 'I yam byatman2', 2);
 
 INSERT INTO post (id, title, content, user_id)
 VALUES (9, 'it is because', 'I yam byatman3', 3);
-
-
-
 
 
 
