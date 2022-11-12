@@ -33,6 +33,11 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
+    public List<PostDto> findAll() {
+        return postRepo.findAll().stream().map(x -> mapper.map(x, PostDto.class)).collect(Collectors.toList());
+    }
+
+    @Override
     public PostDto findById(int userId, int id) {
         return mapper.map(getPost(userId, id), PostDto.class);
     }

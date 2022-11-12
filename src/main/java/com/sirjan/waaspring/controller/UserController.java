@@ -19,9 +19,7 @@ public class UserController {
     }
 
     @GetMapping
-    public List<UserDto> getUsers() {
-        return userService.findAll();
-    }
+    public List<UserDto> getUsers() {return userService.findAll();}
 
     @GetMapping("/{id}")
     @ExecutionTime

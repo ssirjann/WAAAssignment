@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface PostService {
     List<PostDto> findAll(int userId);
+    List<PostDto> findAll();
     PostDto findById(int id, int i);
 
     void delete(int id, int i);

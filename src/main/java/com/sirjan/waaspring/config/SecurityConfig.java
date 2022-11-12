@@ -47,11 +47,13 @@ public class SecurityConfig {
                 .csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/api/v1/authenticate/**").permitAll()
+                .antMatchers("/api/v1/admin/**").hasAuthority("ADMIN")
                 .anyRequest()
                 .authenticated()
                 .and()
                 .sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+        ;
 
         http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
 
